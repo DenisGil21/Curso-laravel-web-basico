@@ -4,5 +4,5 @@
 
 
 @section('content')
-    <h1>Curso <?php echo $curso ?></h1>
+    <h1>Curso {{$curso}}</h1>
 @endsection
