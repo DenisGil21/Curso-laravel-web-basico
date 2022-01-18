@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Curso;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class CursoSeeder extends Seeder
@@ -14,10 +15,7 @@ class CursoSeeder extends Seeder
      */
     public function run()
     {
-        $curso = new Curso();
-        $curso->name = 'Laravel';
-        $curso->description = 'Framework php';
-        $curso->categoria = 'Desarrollo web';
-        $curso->save();
+        User::factory(10)->create();
+        Curso::factory(50)->create();
     }
 }
