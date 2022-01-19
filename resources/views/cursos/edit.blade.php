@@ -8,14 +8,32 @@
     <form action="{{ route('cursos.update', $curso) }}" method="POST">
         @csrf
         @method('PUT')
-        <label for="">Nombre</label>
-        <input type="text" name="name" value="{{ $curso->name }}">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="name" value="{{ old('name', $curso->name) }}">
+            <br>
+            @error('name')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
-        <label for="">Descripcion</label>
-        <textarea name="description" cols="30" rows="10">{{ $curso->description }}</textarea>
+        <div>
+            <label for="">Descripcion</label>
+            <textarea name="description" cols="30" rows="10">{{ old('description', $curso->description) }}</textarea>
+            <br>
+            @error('description')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
-        <label for="">Categoria</label>
-        <input type="text" name="categoria" value="{{ $curso->categoria }}">
+        <div>
+            <label for="">Categoria</label>
+            <input type="text" name="categoria" value="{{ old('categoria', $curso->categoria) }}">
+            <br>
+            @error('categoria')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
         <button type="submit">Actualizar</button>
     </form>

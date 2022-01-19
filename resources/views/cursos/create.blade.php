@@ -5,16 +5,34 @@
 
 @section('content')
     <h1>Cursos create</h1>
-    <form action="{{route('cursos.store')}}" method="POST">
+    <form action="{{ route('cursos.store') }}" method="POST">
         @csrf
-        <label for="">Nombre</label>
-        <input type="text" name="name">
+        <div>
+            <label for="">Nombre</label>
+            <input type="text" name="name" value="{{old('name')}}">
+            <br>
+            @error('name')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
-        <label for="">Descripcion</label>
-        <textarea name="description" cols="30" rows="10"></textarea>
+        <div>
+            <label for="">Descripcion</label>
+            <textarea name="description" cols="30" rows="10">{{old('description')}}</textarea>
+            <br>
+            @error('description')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
-        <label for="">Categoria</label>
-        <input type="text" name="categoria">
+        <div>
+            <label for="">Categoria</label>
+            <input type="text" name="categoria" value="{{old('categoria')}}">
+            <br>
+            @error('categoria')
+                <small>*{{ $message }}</small>
+            @enderror
+        </div>
         <br>
         <button type="submit">Enviar</button>
     </form>
