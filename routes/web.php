@@ -16,7 +16,7 @@ use App\Models\Curso;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', HomeController::class)->name('home');
 
 //Multiples parametros y opcionales
 // Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
@@ -28,3 +28,5 @@ Route::get('/', HomeController::class);
 // });
 
 Route::resource('cursos', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+
+Route::view('nosotros','nosotros')->name('nosotros');
