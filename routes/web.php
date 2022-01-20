@@ -18,15 +18,6 @@ use App\Models\Curso;
 
 Route::get('/', HomeController::class);
 
-Route::get('cursos', [CursoController::class, 'index'])->name('cursos.index');
-Route::get('cursos/create', [CursoController::class, 'create'])->name('cursos.create');
-
-Route::get('cursos/{curso}', [CursoController::class, 'show'])->name('cursos.show');
-
-Route::post('cursos',[CursoController::class, 'store'])->name('cursos.store');
-Route::get('cursos/{curso}/edit',[CursoController::class, 'edit'])->name('cursos.edit');
-Route::put('cursos/{curso}', [CursoController::class,'update'])->name('cursos.update');
-Route::delete('cursos/{curso}', [CursoController::class,'destroy'])->name('cursos.destroy');
 //Multiples parametros y opcionales
 // Route::get('cursos/{curso}/{categoria?}', function ($curso, $categoria = null) {
 //     if ($categoria) {
@@ -35,3 +26,5 @@ Route::delete('cursos/{curso}', [CursoController::class,'destroy'])->name('curso
 //         return "Bienbenidi al curso $curso";
 //     }
 // });
+
+Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
