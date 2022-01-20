@@ -27,4 +27,4 @@ Route::get('/', HomeController::class);
 //     }
 // });
 
-Route::resource('asignaturas', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
+Route::resource('cursos', CursoController::class)->parameters(['asignaturas' => 'curso'])->names('cursos');
